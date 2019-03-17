@@ -1,0 +1,79 @@
+import re
+import tkinter #python3
+
+from tkinter import filedialog
+
+dir = 'X:\\Users\\0055310\\Desktop\\tool\\python\\cpu' #ダイアログ表示時のフォルダを選択
+fld = tkinter.filedialog.askopenfilename(initialdir = dir) #読み込むファイルを選択
+
+file1 = open(fld,"r") #読み込んだファイルを変数に入れる
+
+text = 'none' #ファイル内の1行1行を格納する変数を定義
+regex1 = '.*11\s+.*\%.*\n' #読み込んだ1行に『～11 ～%xxx改行』が含まれるかを確認するための正規表現を定義
+
+while text:
+    text = file1.readline() #ファイル内の1行をtextに格納
+    result1 = re.search(regex1, text) #読み込んだ1行に『～11 ～%xxx改行』が含まれるかを確認
+    
+    if result1: #読み込んだ1行に『～11 ～%xxx改行』が含まれていたら
+        file2 = open("X:\\Users\\0055310\\Desktop\\tool\\python\\cpu\\cpu11_a.txt" , "a") #cpu11_a.txtの書き込み用ファイルを開きに読み込んだ1行を追記
+        cpu11 = result1.group() #読み込んだ1行をCPU11に格納して
+        file2.write(cpu11) #cpu11_a.txtに追記する
+        file2.close() #書き込み用ファイルを閉じる
+    else: #result1の正規表現に合致しなければ次の行を参照する。これをファイルの末尾まで繰り返す
+        continue
+
+#以下はCPU毎に出力するテキストを分けたいので、同様の流れで書き込むファイル名を変更
+
+
+file1 = open(fld,"r")
+
+text = 'none'
+regex1 = '.*12\s+.*\%.*\n'
+
+while text:
+    text = file1.readline()
+    result1 = re.search(regex1, text)
+    
+    if result1:
+        file2 = open("X:\\Users\\0055310\\Desktop\\tool\\python\\cpu\\cpu12_a.txt" , "a")
+        cpu12 = result1.group()
+        file2.write(cpu12)
+        file2.close()
+    else:
+        continue
+
+file1 = open(fld,"r")
+
+text = 'none'
+regex1 = '.*13\s+.*\%.*\n'
+
+while text:
+    text = file1.readline()
+    result1 = re.search(regex1, text)
+    
+    if result1:
+        file2 = open("X:\\Users\\0055310\\Desktop\\tool\\python\\cpu\\cpu13_a.txt" , "a")
+        cpu13 = result1.group()
+        file2.write(cpu13)
+        file2.close()
+    else:
+        continue
+
+
+file1 = open(fld,"r")
+
+text = 'none'
+regex1 = '.*14\s+.*\%.*\n'
+
+while text:
+    text = file1.readline()
+    result1 = re.search(regex1, text)
+    
+    if result1:
+        file2 = open("X:\\Users\\0055310\\Desktop\\tool\\python\\cpu\\cpu14_a.txt" , "a")
+        cpu14 = result1.group()
+        file2.write(cpu14)
+        file2.close()
+    else:
+        continue
