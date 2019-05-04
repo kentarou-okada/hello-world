@@ -18,3 +18,15 @@ len_ip = ip_addr.find(' ',3,17)
 
 #ipの前にあるspaceからsubnetの前にあるspaceまでの文字を抽出
 ip = ip_addr[len_ip + 1 : len_sub ]
+
+
+#########################
+
+抽出したipとsubnetを変換するコード
+
+#.replace(変更前、変更後)で変換可能
+#.replace(変更前、変更後)で変換可能
+ip_chanege = ip_addr.replace(ip , '100.100.100.1')
+
+subnet_chanege = ip_addr.replace(subnet , '255.255.255.255')
+
