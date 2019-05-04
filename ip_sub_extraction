@@ -1,31 +1,75 @@
-##ipとsubnetを抽出するコード
+print('##ipとsubnetを抽出するコードその1')
 
-##sumple
+##sumple_config1
 ip_addr = 'ip address 10.0.0.1 255.255.255.0'
 
 #全体の文字数を確認
 leng = len(ip_addr)
+print('\n全体の文字数：' + str(leng))
 
 #subnetの前にあるspaceまでの文字数を確認
 len_sub = ip_addr.rfind(' ')
-print(len_sub)
+print('\nsubnetの前のspaceまでの文字数：' + str(len_sub))
 
 #subnetの前にあるspaceから最後までの文字を抽出
 subnet = ip_addr[len_sub + 1 : leng]
+print('\nsubnet:' + subnet)
+
 
 #ipの前にあるspaceまでの文字数を確認
 len_ip = ip_addr.find(' ',3,17)
+print('\nipの前のspaceまでの文字数：' + str(len_ip))
 
 #ipの前にあるspaceからsubnetの前にあるspaceまでの文字を抽出
 ip = ip_addr[len_ip + 1 : len_sub ]
+print('\nip address:' + ip)
 
 
 #########################
 
-抽出したipとsubnetを変換するコード
+print('#抽出したipとsubnetを変換するコード その1')
 
 #.replace(変更前、変更後)で変換可能
 ip_chanege = ip_addr.replace(ip , '100.100.100.1')
+print('\nip変更後のconfig:' + ip_chanege)
 
 subnet_chanege = ip_addr.replace(subnet , '255.255.255.255')
+print('\nsubnet変更後のconfig:' + subnet_chanege)
+
+
+
+
+print('\n##################################################')
+print('#ipとsubnetを抽出するコードその2')
+
+##sumple_config2
+ip_addr2 = 'ip address 200.0.0.1 255.255.255.0'
+
+##configをリスト化
+to_split_ip = ip_addr2.split()
+print('splitするとこうなる↓')
+print(to_split_ip)
+
+##ipを抽出
+ip2 = to_split_ip[2]
+print('\n抽出したip：' + ip2)
+
+##subnetを抽出
+subnet2 = to_split_ip[3]
+print('\n抽出したsubnet：' + subnet2)
+
+
+print('\n#########################')
+
+print('#抽出したipとsubnetを変換するコード その2')
+#リストの中のipを変換
+to_split_ip[2] = '1.1.1.1'
+
+#リストの中のsubnetを変換
+to_split_ip[3] = '255.255.255.255'
+
+#変換後にjoinでリストを結合
+new_config = ' '.join(to_split_ip)
+print('\n変更後のconfig：' + new_config)
+
 
