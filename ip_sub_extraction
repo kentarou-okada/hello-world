@@ -1,0 +1,20 @@
+##ipとsubnetを抽出するコード
+
+##sumple
+ip_addr = 'ip address 10.0.0.1 255.255.255.0'
+
+#全体の文字数を確認
+leng = len(ip_addr)
+
+#subnetの前にあるspaceまでの文字数を確認
+len_sub = ip_addr.rfind(' ')
+print(len_sub)
+
+#subnetの前にあるspaceから最後までの文字を抽出
+subnet = ip_addr[len_sub + 1 : leng]
+
+#ipの前にあるspaceまでの文字数を確認
+len_ip = ip_addr.find(' ',3,17)
+
+#ipの前にあるspaceからsubnetの前にあるspaceまでの文字を抽出
+ip = ip_addr[len_ip + 1 : len_sub ]
